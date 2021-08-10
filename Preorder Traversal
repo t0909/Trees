@@ -1,0 +1,22 @@
+vector <int> preorderU(Node* root, vector<int> &ans)
+{
+    
+    
+    if(root!= NULL)
+    {
+        ans.push_back(root->data);
+        preorderU(root->left, ans);
+        preorderU(root->right, ans);
+        
+        
+    }
+    
+    return ans;
+    
+}
+vector <int> preorder(Node* root)
+{
+  vector<int> ans;
+   preorderU(root, ans);
+   return ans;
+}
