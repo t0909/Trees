@@ -1,0 +1,21 @@
+vector <int> postOrderU(Node* root, vector<int> &ans)
+{
+    
+    
+    if(root!= NULL)
+    {
+        postOrderU(root->left, ans);
+        postOrderU(root->right, ans);
+        ans.push_back(root->data);
+        
+    }
+    
+    return ans;
+    
+}
+vector <int> postOrder(Node* root)
+{
+   vector<int> ans;
+   postOrderU(root, ans);
+   return ans;
+}
