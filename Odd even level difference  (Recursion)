@@ -1,0 +1,12 @@
+int getLevelDiff(Node *root)
+    {
+       if(root== NULL)
+       return 0;
+       
+       else 
+       {
+           return root->data -( getLevelDiff(root->left) + getLevelDiff(root->right));
+       }
+       
+       
+    }
