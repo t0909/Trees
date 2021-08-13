@@ -1,0 +1,26 @@
+ int toInt(string s)
+    {
+        int num=0;
+        for(int i=0; i<s.length(); i++)
+        {
+            num= num*10 + int(s[i])-48;
+        }
+        
+        return num;
+    }
+    int evalTree(node* root)
+    {
+       if(root == NULL)
+       return 0;
+       
+       if(root->left== NULL && root->right == NULL)
+        return toInt(root->data);
+        
+        int lt = evalTree(root->left);
+        int rt= evalTree(root->right);
+        
+        if(root->data == "+") return lt+rt;
+        if(root->data == "-") return lt-rt;
+        if(root->data == "*") return lt*rt;
+        if(root->data == "/") return lt/rt;
+    }
