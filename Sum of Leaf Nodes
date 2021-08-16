@@ -1,0 +1,22 @@
+int Addition(Node* root, int &sum)
+{
+    if(root==NULL)
+    return 0;
+    
+    if(root->left==NULL && root->right==NULL)
+    sum += root->data;
+    
+    Addition(root->left, sum);
+    Addition(root->right, sum);
+    
+}
+int sumLeaf(Node* root)
+{
+    int sum=0;
+    
+    Addition(root, sum);
+    
+    return sum;
+   
+    
+}
