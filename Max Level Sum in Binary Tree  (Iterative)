@@ -1,0 +1,35 @@
+//Using Level Order (queue data structure)
+
+int maxLevelSum(Node* root)
+    {
+       queue<Node *> q;
+       q.push(root);
+       int ans=INT_MIN;
+       
+       while(!q.empty())
+       {
+           int sum=0;
+           int count = q.size();
+           for(int i=0; i<count; i++)
+           {
+               
+               Node *curr= q.front();
+               q.pop();
+               
+               sum+=curr->data;
+               
+              if(curr->left)
+              q.push(curr->left);
+              
+              if(curr->right)
+              q.push(curr->right);
+               
+               
+           }
+           
+           ans=max(ans,sum);
+       }
+       return ans;
+    }
+    
+    
